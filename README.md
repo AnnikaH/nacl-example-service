@@ -1,1 +1,1 @@
-# nacl-example-service
+# NaCl example service

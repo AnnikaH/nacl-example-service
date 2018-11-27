@@ -1,0 +1,6 @@
+{
+  "net" : [
+    {"device" : "virtio"},
+    {"device" : "virtio"}
+  ]
+}

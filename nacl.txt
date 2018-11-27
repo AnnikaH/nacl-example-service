@@ -1,0 +1,63 @@
+Iface outside {
+    address: 192.168.0.101,
+    netmask: 255.255.255.0,
+    gateway: 192.168.0.1,
+    index: 0
+}
+
+Iface inside {
+    address: 192.168.1.101,
+    netmask: 255.255.255.0,
+    gateway: 192.168.1.1,
+    index: 1
+}
+
+Gateway gw {
+    send_time_exceeded: false,
+    forward: forwarding_filter,
+    r1: {
+        net: 192.168.0.0,
+        netmask: 255.255.255.0,
+        iface: outside
+    },
+    r2: {
+        net: 192.168.1.0,
+        netmask: 255.255.255.0,
+        iface: inside
+    }
+}
+
+Filter::IP forwarding_filter {
+    if (ip.saddr == 192.168.0.1) {
+        drop
+    }
+    if (ip.saddr == 192.168.0.2) {
+        drop
+    }
+    if (ip.saddr == 192.168.0.3) {
+        drop
+    }
+    if (ip.saddr == 192.168.0.4) {
+        drop
+    }
+    if (ip.saddr == 192.168.0.5) {
+        drop
+    }
+    if (ip.saddr == 192.168.0.6) {
+        drop
+    }
+    if (ip.saddr == 192.168.0.7) {
+        drop
+    }
+    if (ip.saddr == 192.168.0.8) {
+        drop
+    }
+    if (ip.saddr == 192.168.0.9) {
+        drop
+    }
+    if (ip.saddr == 192.168.0.10) {
+        drop
+    }
+
+    accept
+}
